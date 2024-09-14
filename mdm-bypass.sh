@@ -85,6 +85,8 @@ select opt in "${options[@]}"; do
 		defaultUID="501"
 		if ! dscl -f "$dscl_path" localhost -list "$localUserDirPath" UniqueID | grep -q "\<$defaultUID\>"; then
 			echo -e "${CYAN}Create a new user${NC}"
+			echo -e "${RED}NOTE: This should be a transient account. After reboot, use this account to create your${NC}"
+			echo -e "${RED}user account and then delete it${NC}"
 			echo -e "${CYAN}Press Enter to continue, Note: Leaving it blank will default to the automatic user${NC}"
 			echo -e "${CYAN}Enter Full Name (Default: Apple)${NC}"
 			read -rp "Full name: " fullName
